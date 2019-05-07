@@ -1,5 +1,7 @@
 package br.com.alura.gerenciador.modelo;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,6 +15,8 @@ public class Empresa {
 	private Integer id;
 
 	private String nome;
+	
+	private Date dataAbertura = new Date();
 
 	public Integer getId() {
 		return id;
@@ -30,4 +34,11 @@ public class Empresa {
 		this.nome = nome;
 	}
 
+	public Date getDataAbertura() {
+		return dataAbertura;
+	}
+
+	public void setDataAbertura(Date dataAbertura) {
+		this.dataAbertura = dataAbertura;
+	}
 }

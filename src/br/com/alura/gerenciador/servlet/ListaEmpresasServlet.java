@@ -14,12 +14,12 @@ import br.com.alura.gerenciador.dao.EmpresaDAO;
 import br.com.alura.gerenciador.modelo.Empresa;
 
 @WebServlet("/listaEmpresas")
-public class GetAllEmpresas extends HttpServlet {
+public class ListaEmpresasServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
 		EmpresaDAO dao = new EmpresaDAO();
 		List<Empresa> lista = dao.getEmpresas();

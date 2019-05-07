@@ -1,9 +1,6 @@
-<%@
-page
-	import="java.util.List, br.com.alura.gerenciador.modelo.Empresa"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%@page import="br.com.alura.gerenciador.modelo.Empresa"%>
+<%@taglib uri ="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri ="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <html>
 <head>
@@ -11,21 +8,23 @@ page
 </head>
 <body>
 
-	<body>
-		Lista de Empresas <br />
-		<ul>
-			<%
-				List<Empresa> list = null;
-				list = (List<Empresa>)request.getAttribute("empresas");
-				for (Empresa empresa : list) {
-			%>
-			<li><%=empresa.getNome()%></li>
-		</ul>
+		<c:if test="${not empty nomeEmpresa}">
+			Empresa ${ nomeEmpresa } cadastrada com sucesso no dia 
+			<fmt:formatDate value="${dataAbertura}" />
+		</c:if>
+		
+		</br>
 
-		<%
-			}
-		%>
-	</body>
+		Lista de Empresas <br />
+	<ul>
+
+		<c:forEach items="${empresas}" var ="empresa">
+			<li>${empresa.nome} - <fmt:formatDate value="${empresa.dataAbertura}"/> 
+			<a href="/gerenciador/findEmpresa?id=${empresa.id}" >Editar</a>
+			<a href="/gerenciador/removeEmpresa?id=${empresa.id}">Remover</a></li>
+		</c:forEach>
+	</ul>
+
 
 </body>
 </html>
