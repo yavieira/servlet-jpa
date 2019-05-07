@@ -1,0 +1,19 @@
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title></title>
+</head>
+
+<body>
+
+	<form action="/gerenciador/novaEmpresa" method="post">
+
+		Nome: <input type="text" name="nome" />
+
+			<input type="submit">
+	</form>
+
+</body>
+
+
+</html>
