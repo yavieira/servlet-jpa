@@ -13,7 +13,7 @@
 
 	<form action= "${servletUpdateEmpresa}" method="post">
 
-		ID: <input type="text" name="id" value="${empresa.id}"/>
+		Id: <input type="text" name="id" value="${empresa.id}" readonly/>
 		Nome: <input type="text" name="nome" value="${empresa.nome}"/>
 		Data de abertura: <input type="text" name="dataAbertura" 
 		 value="<fmt:formatDate value="${empresa.dataAbertura}" pattern ="dd/MM/yyyy"/>"/>
