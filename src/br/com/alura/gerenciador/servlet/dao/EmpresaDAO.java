@@ -1,11 +1,11 @@
-package br.com.alura.gerenciador.dao;
+package br.com.alura.gerenciador.servlet.dao;
 
 import java.util.List;
 
 import javax.persistence.EntityManager;
 
-import br.com.alura.gerenciador.modelo.Empresa;
-import br.com.alura.gerenciador.util.JpaUtil;
+import br.com.alura.gerenciador.servlet.model.Empresa;
+import br.com.alura.gerenciador.servlet.util.JpaUtil;
 
 
 public class EmpresaDAO {

@@ -1,4 +1,4 @@
-package br.com.alura.gerenciador.util;
+package br.com.alura.gerenciador.servlet.util;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

@@ -1,7 +1,7 @@
 <%@taglib uri ="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri ="http://java.sun.com/jsp/jstl/core" prefix="fmt"%>
 
-<c:url value ="/novaEmpresa" var = "servletNovaEmpresa"/> 
+<c:url value ="/main" var = "servletMain"/> 
 
 <html>
 <head>
@@ -11,10 +11,11 @@
 
 <body>
 
-	<form action= "${servletNovaEmpresa}" method="post">
+	<form action= "${servletMain}" method="post">
 
 		Nome: <input type="text" name="nome" />
 
+			<input type="hidden" name="action" value="NovaEmpresa">
 			<input type="submit">
 	</form>
 

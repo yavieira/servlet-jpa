@@ -2,8 +2,8 @@ package br.com.alura.gerenciador.test;
 
 import java.util.List;
 
-import br.com.alura.gerenciador.dao.EmpresaDAO;
-import br.com.alura.gerenciador.modelo.Empresa;
+import br.com.alura.gerenciador.servlet.dao.EmpresaDAO;
+import br.com.alura.gerenciador.servlet.model.Empresa;
 
 public class GetEmpresasTest {
 
