@@ -24,7 +24,7 @@ public class EmpresaDAO {
 	public List<Empresa> getEmpresas(){
 		EntityManager em = new JpaUtil().getEntityManager();
 		em.getTransaction().begin();
-		List<Empresa> list = em.createQuery("SELECT e FROM Empresa e").getResultList();
+		List<Empresa> list = em.createQuery("SELECT e FROM Empresa e order by e.nome asc").getResultList();
 		em.getTransaction().commit();
 		em.close();
 		return list;

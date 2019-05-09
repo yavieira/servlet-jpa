@@ -2,6 +2,7 @@ package br.com.alura.gerenciador.servlet;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,35 +21,43 @@ public class MainServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	protected void service(HttpServletRequest req, HttpServletResponse resp) 
-			throws ServletException, IOException {
+	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		String actionParam = req.getParameter("action");
+		String path = "";
 
 		if (actionParam.equals("FindEmpresa")) {
 
 			FindEmpresa action = new FindEmpresa();
-			action.exec(req, resp);
+			path = action.exec(req, resp);
 
 		} else if (actionParam.equals("ListaEmpresas")) {
 
 			ListaEmpresas action = new ListaEmpresas();
-			action.exec(req, resp);
+			path = action.exec(req, resp);
 
 		} else if (actionParam.equals("NovaEmpresa")) {
 
 			NovaEmpresa action = new NovaEmpresa();
-			action.exec(req, resp);
+			path = action.exec(req, resp);
 
 		} else if (actionParam.equals("UpdateEmpresa")) {
 
 			UpdateEmpresa action = new UpdateEmpresa();
-			action.exec(req, resp);
+			path = action.exec(req, resp);
 
 		} else if (actionParam.equals("RemoveEmpresa")) {
 
 			RemoveEmpresa action = new RemoveEmpresa();
-			action.exec(req, resp);
+			path = action.exec(req, resp);
+		}
+
+		String[] tipoRequest = path.split(":"); //[0] tipo do request [1] path 
+		if (tipoRequest[0].equals("forward")) {
+			RequestDispatcher rd = req.getRequestDispatcher(tipoRequest[1]);
+			rd.forward(req, resp);
+		} else {
+			resp.sendRedirect(tipoRequest[1]);
 		}
 	}
 }

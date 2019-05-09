@@ -13,7 +13,7 @@ import br.com.alura.gerenciador.servlet.util.Util;
 
 public class UpdateEmpresa {
 
-	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	public String exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		String idParam = req.getParameter("id");
 		String nomeParam = req.getParameter("nome");
@@ -27,6 +27,7 @@ public class UpdateEmpresa {
 		empresa.setDataAbertura(dataAbertura);
 		empresa.setNome(nomeParam);
 		new EmpresaDAO().updateEmpresa(empresa);
-		resp.sendRedirect("main?action=ListaEmpresas");
+		
+		return "redirect:main?action=ListaEmpresas";
 	}
 }

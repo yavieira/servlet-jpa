@@ -11,6 +11,9 @@
 
 <body>
 
+	Cadastre uma empresa </br> </br>
+	
+
 	<form action= "${servletMain}" method="post">
 
 		Nome: <input type="text" name="nome" />

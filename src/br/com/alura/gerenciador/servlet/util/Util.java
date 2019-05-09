@@ -15,7 +15,7 @@ public class Util {
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             newDate = sdf.parse(date);
         } catch (ParseException e) {
-            throw new ServletException(e);
+            throw new ServletException("Erro ao fazer parse da data.");
         }
         return newDate;
 	}
