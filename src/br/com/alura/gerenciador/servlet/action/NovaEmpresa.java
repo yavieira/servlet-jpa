@@ -1,16 +1,14 @@
 package br.com.alura.gerenciador.servlet.action;
 
-import java.io.IOException;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.alura.gerenciador.servlet.dao.EmpresaDAO;
 import br.com.alura.gerenciador.servlet.model.Empresa;
 
-public class NovaEmpresa {
+public class NovaEmpresa implements BaseAction {
 
-	public String exec(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+	public String exec(HttpServletRequest req, HttpServletResponse resp) {
 		String nomeEmpresa = req.getParameter("nome"); // Retorna SEMPRE String
 
 		if (nomeEmpresa.isEmpty() || nomeEmpresa == null) {

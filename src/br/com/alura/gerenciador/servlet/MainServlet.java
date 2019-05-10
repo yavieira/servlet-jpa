@@ -9,11 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.alura.gerenciador.servlet.action.FindEmpresa;
-import br.com.alura.gerenciador.servlet.action.ListaEmpresas;
-import br.com.alura.gerenciador.servlet.action.NovaEmpresa;
-import br.com.alura.gerenciador.servlet.action.RemoveEmpresa;
-import br.com.alura.gerenciador.servlet.action.UpdateEmpresa;
+import br.com.alura.gerenciador.servlet.action.BaseAction;
 
 @WebServlet("/main")
 public class MainServlet extends HttpServlet {
@@ -25,36 +21,19 @@ public class MainServlet extends HttpServlet {
 
 		String actionParam = req.getParameter("action");
 		String path = "";
+		String actionClass = "br.com.alura.gerenciador.servlet.action." + actionParam;
 
-		if (actionParam.equals("FindEmpresa")) {
-
-			FindEmpresa action = new FindEmpresa();
+		try {
+			Class<?> instance = Class.forName(actionClass);
+			BaseAction action = (BaseAction) instance.newInstance();
 			path = action.exec(req, resp);
-
-		} else if (actionParam.equals("ListaEmpresas")) {
-
-			ListaEmpresas action = new ListaEmpresas();
-			path = action.exec(req, resp);
-
-		} else if (actionParam.equals("NovaEmpresa")) {
-
-			NovaEmpresa action = new NovaEmpresa();
-			path = action.exec(req, resp);
-
-		} else if (actionParam.equals("UpdateEmpresa")) {
-
-			UpdateEmpresa action = new UpdateEmpresa();
-			path = action.exec(req, resp);
-
-		} else if (actionParam.equals("RemoveEmpresa")) {
-
-			RemoveEmpresa action = new RemoveEmpresa();
-			path = action.exec(req, resp);
-		}
-
-		String[] tipoRequest = path.split(":"); //[0] tipo do request [1] path 
+		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+			throw new ServletException();
+		}		
+		
+		String[] tipoRequest = path.split(":"); // [0] tipo do request [1] path
 		if (tipoRequest[0].equals("forward")) {
-			RequestDispatcher rd = req.getRequestDispatcher(tipoRequest[1]);
+			RequestDispatcher rd = req.getRequestDispatcher("WEB-INF/view/"+tipoRequest[1]);
 			rd.forward(req, resp);
 		} else {
 			resp.sendRedirect(tipoRequest[1]);
