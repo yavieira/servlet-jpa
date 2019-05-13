@@ -11,7 +11,12 @@
 
 <body>
 
-	Cadastre uma empresa </br> </br>
+<c:import url="logout.jsp" />
+
+	Cadastre uma empresa 
+	
+	<br> 
+	<br>
 	
 
 	<form action= "${servletMain}" method="post">

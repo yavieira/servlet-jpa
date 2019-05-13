@@ -11,6 +11,8 @@
 
 <body>
 
+<c:import url="logout.jsp" />
+
 	<form action="${servletMain}" method="post">
 		<!-- Id: <input type="hidden" name="id" value="${empresa.id}" -->
 		Id: <input type="text" name="id" value="${empresa.id}" readonly />

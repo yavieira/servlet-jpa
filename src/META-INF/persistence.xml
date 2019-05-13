@@ -12,6 +12,7 @@
 
 		<!-- Aqui são listadas todas as entidades -->
 		<class>br.com.alura.gerenciador.servlet.model.Empresa</class>
+		<class>br.com.alura.gerenciador.servlet.model.User</class>
 		<properties>
 
 			<!-- Propriedades JDBC -->
