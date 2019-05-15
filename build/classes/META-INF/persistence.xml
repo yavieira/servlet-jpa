@@ -11,8 +11,8 @@
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
 		<!-- Aqui são listadas todas as entidades -->
-		<class>br.com.alura.gerenciador.servlet.model.Empresa</class>
-		<class>br.com.alura.gerenciador.servlet.model.User</class>
+		<class>br.com.webapp.servlet.model.Empresa</class>
+		<class>br.com.webapp.servlet.model.User</class>
 		<properties>
 
 			<!-- Propriedades JDBC -->
@@ -24,8 +24,7 @@
 			<!-- Configurações específicas do Hibernate -->
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />
-			<property name="hibernate.show_sql" value="true" />
-			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.show_sql" value="false" />
 		</properties>
 	</persistence-unit>
 
