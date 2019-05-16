@@ -14,7 +14,7 @@ public class LoginAuthentic implements BaseAction {
 
 		String userNameParam = (String) req.getParameter("name");
 		String userPassParam = (String) req.getParameter("pass");
-		
+
 		User user = new LoginDAO().find(userNameParam);
 
 		if (user != null) {
@@ -25,7 +25,8 @@ public class LoginAuthentic implements BaseAction {
 			} else {
 				return "redirect:main?action=LoginForm";
 			}
+		} else {
+			return "redirect:main?action=LoginForm";
 		}
-		return "";
 	}
 }

@@ -21,7 +21,7 @@ public class MainServlet extends HttpServlet {
 
 		String actionParam = req.getParameter("action");
 		String path = "";
-		String actionClass = "br.com.alura.gerenciador.servlet.action." + actionParam;
+		String actionClass = "br.com.webapp.servlet.action." + actionParam;
 
 			try {
 				Class<?> instance = Class.forName(actionClass);
